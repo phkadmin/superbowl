@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1000" viewBox="0 0 800 1000" role="img" aria-label="Venmo QR placeholder">
+  <rect width="800" height="1000" fill="#ffffff"/>
+  <rect x="80" y="180" width="640" height="640" rx="24" fill="#f3f3f3" stroke="#111" stroke-width="8"/>
+  <text x="400" y="100" font-size="56" text-anchor="middle" font-family="Arial, sans-serif" fill="#111">Payge Kerman</text>
+  <text x="400" y="160" font-size="44" text-anchor="middle" font-family="Arial, sans-serif" fill="#111">@Payge-Kerman</text>
+  <text x="400" y="520" font-size="44" text-anchor="middle" font-family="Arial, sans-serif" fill="#111">Replace this with</text>
+  <text x="400" y="570" font-size="44" text-anchor="middle" font-family="Arial, sans-serif" fill="#111">your real Venmo QR image</text>
+  <text x="400" y="920" font-size="120" text-anchor="middle" font-family="Arial, sans-serif" font-weight="700" fill="#111">venmo</text>
+</svg>

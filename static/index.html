@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Super Bowl Betting Board</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="bg-shape bg-one"></div>
+    <div class="bg-shape bg-two"></div>
+
+    <header class="topbar">
+      <h1>Super Bowl Betting Board</h1>
+      <div class="actions">
+        <button id="viewGuessesBtn" class="tertiary-btn">View Guesses</button>
+        <button id="adminToggle" class="ghost-btn">Admin Mode</button>
+      </div>
+    </header>
+
+    <main>
+      <div id="tallyPill" class="tally-pill">$0 owed</div>
+
+      <section id="surveyView" class="view active">
+        <div class="card">
+          <h2>Entry</h2>
+          <p class="muted">Answer only what you want. Each answered question costs either $1 or $2.</p>
+
+          <div class="grid basic-grid">
+            <label>
+              Full Name
+              <input type="text" id="fullName" placeholder="First Last" />
+            </label>
+            <label>
+              Venmo Handle
+              <input type="text" id="venmoHandle" placeholder="@yourhandle" />
+            </label>
+            <label>
+              Phone Number
+              <input type="tel" id="phoneNumber" placeholder="(555) 555-5555" />
+            </label>
+          </div>
+        </div>
+
+        <div id="questionsContainer"></div>
+
+        <div class="footer-actions">
+          <button id="toSummary" class="primary-btn">Review Total</button>
+        </div>
+      </section>
+
+      <section id="summaryView" class="view">
+        <div class="card">
+          <h2>Total Summary</h2>
+          <div id="summaryStats" class="summary-stats"></div>
+          <p class="muted">Choose payment method to submit your responses.</p>
+          <div class="pay-buttons">
+            <button id="payCash" class="primary-btn">Pay Cash</button>
+            <button id="payVenmo" class="secondary-btn">Pay with Venmo</button>
+            <button id="backToSurvey" class="ghost-btn">Back</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="venmoView" class="view">
+        <div class="card center-card">
+          <h2>Pay with Venmo</h2>
+          <p>Scan and send your total, then confirm below.</p>
+          <img class="venmo-qr" src="/assets/venmo-qr.svg" alt="Venmo QR Code" />
+          <div class="pay-buttons">
+            <button id="venmoDone" class="primary-btn">Done!</button>
+            <button id="venmoBack" class="ghost-btn">Back</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="resultsView" class="view">
+        <div class="card">
+          <div class="section-header">
+            <h2>Results</h2>
+            <button id="refreshResults" class="ghost-btn">Refresh</button>
+          </div>
+          <p class="muted" id="resultMeta"></p>
+          <div id="myGuessesCard"></div>
+          <div id="resultsContainer"></div>
+        </div>
+      </section>
+
+      <section id="viewGuessesAccessView" class="view">
+        <div class="card center-card">
+          <h2>View Guesses</h2>
+          <p class="muted">Enter the last 4 digits of a phone number that has already submitted.</p>
+          <label>
+            Last 4 digits
+            <input type="text" id="lookupLast4" maxlength="4" inputmode="numeric" placeholder="1234" />
+          </label>
+          <div class="pay-buttons">
+            <button id="lookupGuessesBtn" class="primary-btn">Continue</button>
+            <button id="lookupCancelBtn" class="ghost-btn">Cancel</button>
+          </div>
+          <p id="lookupError" class="error"></p>
+        </div>
+      </section>
+
+      <section id="adminLoginView" class="view">
+        <div class="card center-card">
+          <h2>Admin Login</h2>
+          <label>
+            Password
+            <input type="password" id="adminPassword" />
+          </label>
+          <div class="pay-buttons">
+            <button id="adminLoginBtn" class="primary-btn">Enter</button>
+            <button id="adminCancelBtn" class="ghost-btn">Cancel</button>
+          </div>
+          <p id="adminLoginError" class="error"></p>
+        </div>
+      </section>
+
+      <section id="adminView" class="view">
+        <div class="card">
+          <div class="section-header">
+            <h2>Admin Payout Tracker</h2>
+            <button id="adminCloseBtn" class="ghost-btn">Close Admin</button>
+          </div>
+          <p class="muted">Set correct answers, then calculate payouts.</p>
+
+          <div id="adminAnswersContainer"></div>
+
+          <div class="pay-buttons">
+            <button id="saveAnswersBtn" class="primary-btn">Save Correct Answers</button>
+            <button id="calcPayoutBtn" class="secondary-btn">Calculate Payouts</button>
+          </div>
+
+          <div id="adminTotals" class="summary-stats"></div>
+          <div id="adminByPerson"></div>
+          <div id="adminByQuestion"></div>
+        </div>
+      </section>
+    </main>
+
+    <template id="questionCardTemplate">
+      <div class="card question-card">
+        <div class="question-head">
+          <h3></h3>
+          <span class="price-tag"></span>
+        </div>
+        <div class="question-body"></div>
+      </div>
+    </template>
+
+    <script src="/app.js" defer></script>
+  </body>
+</html>
