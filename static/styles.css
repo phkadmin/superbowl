@@ -145,6 +145,11 @@ select {
   font: inherit;
 }
 
+input[type="number"] {
+  min-width: 100px;
+  width: 100px;
+}
+
 input:focus,
 select:focus {
   border-color: var(--accent);
