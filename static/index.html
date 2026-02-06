@@ -23,6 +23,17 @@
 
       <section id="surveyView" class="view active">
         <div class="card">
+          <h2>Welcome to Super Bowl 2026!</h2>
+          <p class="muted">
+            Let the games begin! Below, you'll find the betting options for this years' game, along with the
+            price for each bet. Please feel free to bet on any/all questions that interest you. Nothing is required,
+            but all are a fun way to stay involved in the game, regardless of your interest in football. During the
+            game, the winners will be calculated and announced live, with payouts coming at the end of the evening via
+            Venmo.
+          </p>
+        </div>
+
+        <div class="card">
           <h2>Entry</h2>
           <p class="muted">Answer only what you want. Each answered question costs either $1 or $2.</p>
 
@@ -43,6 +54,23 @@
         </div>
 
         <div id="questionsContainer"></div>
+
+        <div class="card">
+          <h2>Super Bowl Squares</h2>
+          <p class="muted">
+            Super Bowl Squares is a party game played on a 10×10 grid where each axis represents one of the two teams.
+            The X axis is Patriots and the Y axis is Seahawks.
+            Buy squares before the game, then once all squares are filled and numbers 0–9 are randomly assigned to each
+            row and column, winners are determined by matching the last digit of each team’s score at the end of each
+            quarter or the final score.
+          </p>
+          <div id="squaresSummary" class="summary-stats"></div>
+          <div class="squares-shell">
+            <div class="edge-blur left"></div>
+            <div class="edge-blur right"></div>
+            <div id="squaresGridWrap" class="squares-scroll"></div>
+          </div>
+        </div>
 
         <div class="footer-actions">
           <button id="toSummary" class="primary-btn">Review Total</button>
@@ -82,6 +110,7 @@
           </div>
           <p class="muted" id="resultMeta"></p>
           <div id="myGuessesCard"></div>
+          <div id="resultsSquares"></div>
           <div id="resultsContainer"></div>
         </div>
       </section>
@@ -123,9 +152,24 @@
             <h2>Admin Payout Tracker</h2>
             <button id="adminCloseBtn" class="ghost-btn">Close Admin</button>
           </div>
-          <p class="muted">Set correct answers, then calculate payouts.</p>
+          <p class="muted">Set correct answers, calculate payouts, and track squares winners by quarter.</p>
 
           <div id="adminAnswersContainer"></div>
+
+          <div class="card nested-card">
+            <h3>Squares Admin</h3>
+            <div id="adminSquaresPot" class="summary-stats"></div>
+            <div id="adminSquaresScoreInputs" class="grid basic-grid"></div>
+            <div class="pay-buttons">
+              <button id="saveSquareScoresBtn" class="secondary-btn">Save Quarter Scores</button>
+            </div>
+            <div class="squares-shell">
+              <div class="edge-blur left"></div>
+              <div class="edge-blur right"></div>
+              <div id="adminSquaresGrid" class="squares-scroll"></div>
+            </div>
+            <div id="adminSquaresWinners"></div>
+          </div>
 
           <div class="pay-buttons">
             <button id="saveAnswersBtn" class="primary-btn">Save Correct Answers</button>
